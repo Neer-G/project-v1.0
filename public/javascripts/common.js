@@ -5,7 +5,7 @@ $.validator.addMethod('equalTo',function () {
 }, 'password and confirm password should be same.');
 
 $(document).ready(function() {
-    $("#registration").validate({
+    $("#registrationform").validate({
         rules: {
         	"usernamesignup": {
                 required: true
@@ -20,6 +20,13 @@ $(document).ready(function() {
            "passwordsignup_confirm": {      
            		required: true,         
                 equalTo: true
+            },
+            "username": {      
+                required: true,
+                email: true
+            },
+            "password": {      
+                required: true
             },
         },messages: {
         	"usernamesignup": {
@@ -36,6 +43,33 @@ $(document).ready(function() {
             	required:"Please enter your Password.",              
                 equalTo: 'password and confirm password should be same.'
             },
+            "username": {  
+                required:"Please enter your email.",
+                email: "Please enter valid email."    
+            },
+            "password": {  
+                required:"Please enter your Password."
+            }
+        }
+    });
+
+    $("#loginform").validate({
+        rules: {            
+            "username": {      
+                required: true,
+                email: true
+            },
+            "password": {      
+                required: true
+            },
+        },messages: {            
+            "username": {  
+                required:"Please enter your email.",
+                email: "Please enter valid email."    
+            },
+            "password": {  
+                required:"Please enter your Password."
+            }
         }
     });
 });
